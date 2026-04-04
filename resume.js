@@ -105,10 +105,15 @@ $(document).ready(function () {
     $('.hform').on('submit', function(event) {
         event.preventDefault();
 
+        const nameProvided = $('#user-name').val();
+        const companyProvided = $('#user-company').val();
         const emailProvided = $('#user-email').val();
+        const phoneProvided = $('#user-phone').val();
+        const messageProvided = $('#user-message').val();
+        const finalMessage = "Hi this is " + nameProvided + " from " + companyProvided + " " + messageProvided + " You can contact us through: " + phoneProvided + " or " + emailProvided;
 
         if (emailProvided) {
-            const link = "https://mail.google.com/mail/?view=cm&to=balaman.vincejaliel@gmail.com&su=Hiring Offer&body=This is an offer email to...&bcc=" + emailProvided;
+            const link = "https://mail.google.com/mail/?view=cm&to=balaman.vincejaliel@gmail.com&su=Hiring Offer&body=" + finalMessage;
             prompt("Copy the link below to proceed:", link);
             $(this).trigger("reset");
         }

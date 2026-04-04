@@ -166,34 +166,38 @@
         </div>
 
         <div class="contact" id="contactc">
-            <h2>CONTACT</h2>
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-info-grid">
+                <div class="info-item">
+                    <strong>Email</strong>
+                    <p>balaman.vincejaliel@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <strong>Number</strong>
+                    <p>09525226430</p>
+                </div>
+                <div class="info-item">
+                    <strong>GitHub</strong>
+                    <p><a href="https://github.com/vincebalaman" target="_blank">github.com/vincebalaman</a></p>
+                </div>
+            </div>
+
             <hr>
-            <table border="1">
-                <tr>
-                    <th>Email</th>
-                    <th>Number</th>
-                    <th>Github</th>
-                </tr>
-                <tr>
-                    <th>balaman.vincejaliel@gmail.com</th>
-                    <th>09525226430</th>
-                    <th>https://github.com/vincebalaman</th>
-                </tr>
-            </table>
-            <hr>
-            <form class="hform">
-                <p>Enter your email: </p>
-                <input type="email" id="user-email">
-                <input type="submit" value="Hire Me">
-            </form>
-            <hr>
-            <div id="contact-panel" style="display:none; position:fixed; top:20%; left:30%; background:white; padding:20px; border:1px solid #ccc;">
-                <form >
-                    <input type="text" name="name" value="Vince Balaman">
+            <div class="hire-form-container">
+                <h3>Let's Collaborate</h3>
+                <p>Interested in hiring me? Please leave your details below.</p>
+                <form class="hform" id="recruitment-form">
+                    <div class="form-group">
+                        <input type="text" id="user-name" placeholder="Full Name" required>
+                        <input type="text" id="user-company" placeholder="Company Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="user-email" placeholder="Email Address" required>
+                        <input type="tel" id="user-phone" placeholder="Contact Number" required>
+                    </div>
+                    <textarea id="user-message" placeholder="Brief Message (Optional)" rows="3"></textarea>
+                    <input type="submit" value="Send Inquiry" class="submit-btn">
                 </form>
-                <h3>Contact Me</h3>
-                <p>Email: example@email.com</p>
-                <button id="close-panel">Close</button>
             </div>
         </div>
         <div class="download">

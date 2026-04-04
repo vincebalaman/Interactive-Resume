@@ -203,7 +203,6 @@ ul{
 .edu-date { font-weight: bold; color: #2563eb; font-size: 0.9rem; }
 .school-name { margin-top: 5px; color: #4b5563; font-style: italic; }
 
-/* The Modern Button */
 .more-btn {
     display: flex;
     align-items: center;
@@ -233,7 +232,6 @@ ul{
     transition: transform 0.3s ease;
 }
 
-/* The Collapsible Content */
 .certs-content {
     max-height: 0;
     overflow: hidden;
@@ -248,8 +246,63 @@ ul{
     border: 1px solid #e5e7eb;
 }
 
-.skills{
-    margin-bottom: 3%;
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked on mobile, 1fr 1fr on desktop */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Category Header Styling */
+.skill-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #2563eb; /* Professional Blue */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skill-header:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+}
+
+/* Skill Pills Styling */
+.skill-pills {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.skill-pills span {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+.skill-header.active + .skill-pills {
+    padding: 15px 10px;
+    max-height: 200px; /* Adjust based on content */
+}
+
+.skill-header.active .plus-icon {
+    transform: rotate(45deg);
 }
 
 .projects{

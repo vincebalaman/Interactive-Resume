@@ -59,6 +59,62 @@ $(document).ready(function () {
         });
     });
 
+    $('#proglang').click(function() {
+        $(this).toggleClass('active');
+        var $content = $(this).next();
+
+        if ($content.css('max-height') !== '0px') {
+            $content.css('max-height', '0');
+        } else {
+            $content.css('max-height', $content.prop('scrollHeight') + "px");
+        }
+    });
+
+    $('#frameworksb').click(function() {
+        $(this).toggleClass('active');
+        var $content = $(this).next();
+
+        if ($content.css('max-height') !== '0px') {
+            $content.css('max-height', '0');
+        } else {
+            $content.css('max-height', $content.prop('scrollHeight') + "px");
+        }
+    });
+
+    $('#datab').click(function() {
+        $(this).toggleClass('active');
+        var $content = $(this).next();
+
+        if ($content.css('max-height') !== '0px') {
+            $content.css('max-height', '0');
+        } else {
+            $content.css('max-height', $content.prop('scrollHeight') + "px");
+        }
+    });
+
+    $('#networkingb').click(function() {
+        $(this).toggleClass('active');
+        var $content = $(this).next();
+
+        if ($content.css('max-height') !== '0px') {
+            $content.css('max-height', '0');
+        } else {
+            $content.css('max-height', $content.prop('scrollHeight') + "px");
+        }
+    });
+
+    $('#toolsb').click(function() {
+        $(this).toggleClass('active');
+        var $content = $(this).next();
+
+        if ($content.css('max-height') !== '0px') {
+            $content.css('max-height', '0');
+        } else {
+            $content.css('max-height', $content.prop('scrollHeight') + "px");
+        }
+    });
+
+
     $('.hform').on('submit', function(event) {
         event.preventDefault();
 

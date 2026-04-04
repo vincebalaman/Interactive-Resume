@@ -99,7 +99,25 @@ ul{
     transition: max-height 0.2s ease-out;
 }
 
+.about{
+    margin-bottom: 3%;
+}
 
+.education{
+    margin-bottom: 3%;
+}
+
+.skills{
+    margin-bottom: 3%;
+}
+
+.projects{
+    margin-bottom: 3%;
+}
+
+.contact{
+    margin-bottom: 3%;
+}
 
 .more{
     color: blue;
@@ -118,6 +136,68 @@ ul{
 }
 
 .certs{
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    max-height: 0;    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
+.skillsb{
+    color: blue;
+    font-size: 100%;
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.active, .skillsb:hover {
+    color: black;
+}
+
+#proglangc{
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    max-height: 0;    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#frameworksc{
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    max-height: 0;    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#dbc{
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    max-height: 0;    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#networkingc{
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    max-height: 0;    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#toolsc{
     display: flex;
     flex-direction: column;
     padding: 0 18px;

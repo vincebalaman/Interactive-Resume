@@ -1,3 +1,13 @@
+#theme-toggle{
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.container { background: #fff; color: #333; transition: 0.3s; }
+
+.container.dark-theme { background: #1a1a1a; color: #f4f4f4; }
+
 .container{
     background-color: white;
     width: var(210mm);
@@ -13,11 +23,25 @@ li{
     margin: 1%;
 }
 
+ol{
+    font-weight: bold;
+}
+
+ul{
+    font-weight: lighter;
+}
+
 .header{
     position: relative;
     text-align: center;
     padding: 20px 0;
     border-bottom: 2px solid #333;
+}
+
+#guest{
+    position: absolute;
+    right: 92%;
+    padding-bottom: 1%;
 }
 
 .profile-photo{
@@ -73,4 +97,44 @@ li{
     max-height: 0;    
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+
+
+.more{
+    color: blue;
+    font-size: 100%;
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.active, .more:hover {
+    color: black;
+}
+
+.certs{
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    max-height: 0;    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+}
+
+.hform{
+    align-items: center;
+}
+
+.download{
+    text-align: center;
 }

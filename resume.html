@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="resume.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <script src="resume.js" defer></script>
 </head>
 <body>
     <div class="container">
+        <nav>
+            <button id="theme-toggle">Switch Theme</button>
+        </nav>
         <header class="header">
             <div class="header-content">
+                <h4 id="guest"></h4>
+                <br>
                 <h1>RESUME</h1>
                 <h2 id="name">Vince Jaliel Z. Balaman</h2>
                 <h3 id="add">Cagayan de Oro City, Philippines</h3>
@@ -38,6 +44,7 @@
         </div>
         <div class="education" id="educationc">
             <h2>EDUCATION</h2>
+            <hr>
             <ol>
                 <li>Bachelor of Science in Information Technology University of 
                     Science and Technology of Southern Philippines (USTP) | Expected 2028</li>
@@ -47,15 +54,18 @@
                 <li>Senior High School – STEM Strand Xavier University – Ateneo de Cagayan | Graduated 2019</li>
                 <li>Junior High School & Grade School Xavier University (Ateneo de Cagayan)</li>
             </ol>
-            <h3>CERTIFICATIONS & AFFILIATIONS</h3>
-            <ul>
-                <li>Cisco Certified Network Associate (CCNA) – Coursework/Training</li>
-                <li>Technopreneurship Program Participant – USTP</li>
-            </ul>
-
+            <button class="more">View More</button>
+            <div class="certs">
+                <h3>CERTIFICATIONS & AFFILIATIONS</h3>
+                <ul>
+                    <li>Cisco Certified Network Associate (CCNA) – Coursework/Training</li>
+                    <li>Technopreneurship Program Participant – USTP</li>
+                </ul>
+            </div>
         </div>
         <div class="skills" id="skillsc">
             <h2>TECHNICAL SKILLS</h2>
+            <hr>
             <ul>
                 <li>Programming Languages: Python, Java, C, C++, JavaScript, PHP, SQL.</li>
                 <li>Web Development & Frameworks: Node.js, Laravel, HTML5, CSS3, Express.js.</li>
@@ -67,30 +77,76 @@
         </div>
         <div class="projects" id="projectsc">
             <h2>TECHNICAL PROJECTS</h2>
-            <ol>
-                <li>NovaGazeAI | AI Integration Collaborator</li>
-                <ul>
-                    <li>Developed project logic for an accessibility application integrating Amazon Nova AI with eye-tracking technology.</li>
-                    <li>Implemented MediaPipe for visual tracking and calculated EAR (Eye Aspect Ratio) for blink detection to assist users with limited mobility.</li>
-                    <li>Collaborated on the integration of AI-driven responses to improve user interface convenience.</li>
-                </ul>
-                <li>Well Meadows Hospital Registry | Lead Developer</li>
-                <ul>
-                    <li>Engineered a full-stack hospital record management system using Node.js and PostgreSQL.</li>
-                    <li>Designed a decoupled directory structure to ensure professional-grade scalability and maintainability.</li>
-                    <li>Implemented full CRUD functionality (Create, Read, Update, Delete) for managing patient, staff, and medical records.</li>
-                </ul>
-                <li>NutriCloud | Project Lead</li>
-                <ul>
-                    <li>Developed a patient dietary tracking system for healthcare providers using the Laravel framework.</li>
-                    <li>Created high-fidelity UI mockups in Figma and architected the backend database to handle sensitive medical data.</li>
-                </ul>
-            </ol>
+            <hr>
+            <label for="project-filter">Filter Projects by Tech:</label>
+            <select id="project-filter">
+                <option value="all">All Projects</option>
+                <option value="postgresql">PostgreSQL</option>
+                <option value="laravel">Laravel</option>
+                <option value="ai">AI / Python</option>
+            </select>
 
+            <div id="project-list">
+                <div class="project-item" data-tech="postgresql">
+                    <h4>Well Meadows Hospital Registry | Lead Developer</h4>
+                    <ul>
+                        <li>Engineered a full-stack hospital record management system using Node.js and PostgreSQL.</li>
+                        <li>Designed a decoupled directory structure to ensure professional-grade scalability and maintainability.</li>
+                        <li>Implemented full CRUD functionality (Create, Read, Update, Delete) for managing patient, staff, and medical records.</li>
+                    </ul>
+                </div>
+                <div class="project-item" data-tech="ai">
+                    <h4>NovaGazeAI | AI Integration Collaborator</h4>
+                    <ul>
+                        <li>Developed project logic for an accessibility application integrating Amazon Nova AI with eye-tracking technology.</li>
+                        <li>Implemented MediaPipe for visual tracking and calculated EAR (Eye Aspect Ratio) for blink detection to assist users with limited mobility.</li>
+                        <li>Collaborated on the integration of AI-driven responses to improve user interface convenience.</li>
+                    </ul>
+                </div>
+                <div class="project-item" data-tech="laravel">
+                    <h4>NutriCloud | Project Lead</h4>
+                    <ul>
+                        <li>Developed a patient dietary tracking system for healthcare providers using the Laravel framework.</li>
+                        <li>Created high-fidelity UI mockups in Figma and architected the backend database to handle sensitive medical data.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="contact" id="contactc">
 
-            <form action="click"></form>
+        <div class="contact" id="contactc">
+            <h2>CONTACT</h2>
+            <hr>
+            <table border="1">
+                <tr>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Github</th>
+                </tr>
+                <tr>
+                    <th>balaman.vincejaliel@gmail.com</th>
+                    <th>09525226430</th>
+                    <th>https://github.com/vincebalaman</th>
+                </tr>
+            </table>
+            <hr>
+            <form class="hform">
+                <p>Enter your email: </p>
+                <input type="email" id="user-email">
+                <input type="submit" value="Hire Me">
+            </form>
+            <hr>
+            <div id="contact-panel" style="display:none; position:fixed; top:20%; left:30%; background:white; padding:20px; border:1px solid #ccc;">
+                <form >
+                    <input type="text" name="name" value="Vince Balaman">
+                </form>
+                <h3>Contact Me</h3>
+                <p>Email: example@email.com</p>
+                <button id="close-panel">Close</button>
+            </div>
+        </div>
+        <div class="download">
+            <hr>
+            <a href="assets/my-resume.pdf" download="YourName_Resume" class="btn">Download PDF</a>
         </div>
     </div>
 </body>

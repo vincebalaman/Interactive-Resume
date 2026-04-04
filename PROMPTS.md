@@ -51,3 +51,186 @@ This script listens for a click, toggles the "active" class for styling, and cal
 
 ## How I used/modified it in my project: <ins> By following these techniques, in html creating a button and having a div inside to store the content, in css creating states and dimensions, and finally in javascript by setting scripts and toggles </ins>
 
+# Entry #3
+## Tool Used: <ins> Gemini </ins>
+
+## Prompt (copy-paste exactly): <ins> how do you connect a select drop down from html and use it for query in javascript </ins>
+
+## AI Output (summary or screenshot reference): <ins>
+1. The HTML Setup
+Give your <select> an id so JavaScript can find it, and ensure each <option> has a value attribute.
+
+HTML
+<label for="project-filter">Filter Projects by Tech:</label>
+<select id="project-filter">
+    <option value="all">All Projects</option>
+    <option value="postgresql">PostgreSQL</option>
+    <option value="laravel">Laravel</option>
+    <option value="ai">AI / Python</option>
+</select>
+
+<div id="project-list">
+    <div class="project-item" data-tech="postgresql">Hospital Registry</div>
+    <div class="project-item" data-tech="ai">NovaGazeAI</div>
+</div>
+2. The JavaScript "Query" Logic
+You use the change event listener to detect when the user picks a new option.
+
+JavaScript
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.getElementById("project-filter");
+    const projects = document.querySelectorAll(".project-item");
+
+    dropdown.addEventListener("change", function() {
+        // "this.value" gets the 'value' attribute of the selected <option>
+        const selectedTech = this.value;
+
+        console.log("User selected:", selectedTech);
+
+        // Simple "Query" Logic: Hide or Show elements based on the selection
+        projects.forEach(project => {
+            const projectTech = project.getAttribute("data-tech");
+
+            if (selectedTech === "all" || projectTech === selectedTech) {
+                project.style.display = "block"; // Show it
+            } else {
+                project.style.display = "none";  // Hide it
+            }
+        });
+    });
+});
+</ins>
+
+## How I used/modified it in my project: <ins> I followed the technique but added my own version of it to modernize it </ins>
+
+# Entry #4
+## Tool Used: <ins> Gemini </ins>
+
+## Prompt (copy-paste exactly): <ins> I made this form that lets the user enter their email and then a submit button, what do i need to add in javascript if i want the submit button to generate an email which is shown through an alert or pop up? </ins>
+
+## AI Output (summary or screenshot reference): <ins>
+To capture the user's input and display it in an alert, you need to "listen" for the form's submit event, prevent it from refreshing the page (which is the default behavior for forms), and then grab the value from the input field.
+
+Since you are using jQuery for your other features, here is the most efficient way to do it.
+
+1. Update your HTML
+First, add an id to your input field so JavaScript can easily find it. It's also better practice to use type="email" for basic validation...
+
+<div id="project-list">
+    <div class="project-item" data-tech="postgresql">Hospital Registry</div>
+    <div class="project-item" data-tech="ai">NovaGazeAI</div>
+</div>
+
+2. Add the JavaScript (jQuery)
+Add this to your script file. This code captures the data when the "Hire Me" button is clicked.
+
+JavaScript
+$('.hform').on('submit', function(event) {
+    // 1. Prevent the page from refreshing
+    event.preventDefault();
+
+    // 2. Get the value from the input field
+    const emailProvided = $('#user-email').val();
+
+    // 3. Generate the alert/pop-up
+    if (emailProvided) {
+        alert("Success! An email has been generated for: " + emailProvided);
+        
+        // Optional: Clear the input after submission
+        $(this).trigger("reset");
+    }
+});
+</ins>
+
+## How I used/modified it in my project: <ins> I used the structure for javascript and edited it to fit with my form </ins>
+
+# Entry #5
+## Tool Used: <ins> Gemini </ins>
+
+## Prompt (copy-paste exactly): <ins> for the dark mode toggle what do need to add in the html to make the css and js code work? </ins>
+
+## AI Output (summary or screenshot reference): <ins>
+To make the Dark Mode Toggle functional, your HTML needs two key components: a trigger (the button or switch) and a hook (the external files for CSS and jQuery).
+
+Here is the structural setup for your index.html:
+
+1. The HTML Structure
+You need a specific element with an id that matches your jQuery selector (#theme-toggle)... 
+
+Gemini said
+To make the Dark Mode Toggle functional, your HTML needs two key components: a trigger (the button or switch) and a hook (the external files for CSS and jQuery).
+
+Here is the structural setup for your index.html:
+
+1. The HTML Structure
+You need a specific element with an id that matches your jQuery selector (#theme-toggle).
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <button id="theme-toggle">Switch Mode</button>
+    </nav>
+
+    <main>
+        <h1>My Interactive Resume</h1>
+        <p>This is where your content goes.</p>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+2. Why these parts matter
+The Button ID: The id="theme-toggle" acts as a unique identifier. Without this, the jQuery code won't know which element the user is clicking on to trigger the mode change.
+
+jQuery CDN: Since you are using .toggleClass(), you must include the jQuery library. I've placed the CDN link (the script tag from code.jquery.com) at the bottom of the <body> so it doesn't slow down the page loading.
+
+Order of Scripts: Always load the jQuery library first, then your custom script.js. If you swap them, your custom code will try to use jQuery functions before they have been defined, resulting in an error...
+
+3. Quick CSS Reminder
+Ensure your CSS classes are defined to target the body specifically, as that is where the jQuery is "toggling" the class...
+</ins>
+
+## How I used/modified it in my project: <ins> I used the structure for javascript and edited it to fit with my form </ins>
+
+# Entry #6
+## Tool Used: <ins> Gemini </ins>
+
+## Prompt (copy-paste exactly): <ins> i am satisfied with the header and the professional summary so far, however, do you have any suggestions for the education, especially on the expandable and collapsing parts especially the button? </ins>
+
+## AI Output (summary or screenshot reference): <ins>
+
+Gemini said
+The Education section currently looks a bit like a traditional document, which creates a slight "visual disconnect" from your modern header. To make it feel like a professional website, we should move away from the standard numbered list and the generic "View More" text link.
+
+Here are a few suggestions to beautify the expandable parts and the button:
+
+1. Replace the Text Link with a "Sticker" or "Ghost" Button
+A blue text link like "View More" can look a bit dated. Instead, use a Ghost Button (a button with a border but no fill) or an Icon Button.
+
+The Look: Give it a border, some padding, and an arrow icon (↓) that rotates when the content is expanded.
+
+The Label: Instead of "View More," try something more descriptive like "View Certifications" or "Academic Achievements."
+
+2. Timeline-Style Layout
+Since education is chronological, a vertical timeline looks very professional for IT resumes.
+
+The Design: A thin vertical line on the left with small circular "nodes" for each school.
+
+Benefit: It fills the white space on the left and guides the eye downward through your academic history.
+
+3. Professional "Card" for Certifications
+Instead of a simple list appearing below the schools, wrap the Certifications & Affiliations in a distinct "card" with a subtle background color or a soft border. This makes the "collapsible" content feel like a hidden treasure rather than just more text.
+</ins>
+
+## How I used/modified it in my project: <ins> I followed the advice and also used this expandable parts unto the other parts of my resume </ins>
+

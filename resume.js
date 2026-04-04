@@ -10,17 +10,7 @@ $(document).ready(function () {
     var guestName = document.getElementById("guest")
     guestName.textContent = "Welcome " + name + "!";
 
-    $('.nav-links a').on('click', function(event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            const hash = this.hash;
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - 80
-            }, 800);
-        }
-    });
-
-    var coll = document.getElementsByClassName("more");
+    var coll = document.getElementsByClassName("more-btn");
 
     for (var i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function() {

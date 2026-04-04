@@ -93,19 +93,53 @@ ul{
     font-weight: lighter;
 }
 
-.header{
+.hero-section {
+    background-color: var(--hero-bg);
+    border-radius: 12px;
+    padding: 60px 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
     position: relative;
-    text-align: center;
-    padding: 20px 0;
-    border-bottom: 2px solid #333;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary), transparent);
+    top: -50px;
+    right: -50px;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 parts text, 1 part photo */
+    gap: 40px;
+    align-items: center; /* V-Centering */
+}
+
+.profile-photo-wrapper {
+    width: 160px; /* Slightly larger, centered in its col */
+    height: 160px;
+    margin: 0 auto; /* Horizontal centering in the col */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 4px solid #fff; /* White 'matte' border */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Soft shadow */
+    transition: transform 0.3s ease;
+}
+
+.profile-photo-wrapper:hover {
+    transform: translateY(-5px);
 }
 
 .profile-photo{
-    position: absolute;
-    top: 20%;
-    right: 25%;
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 100%;
 }
@@ -118,49 +152,100 @@ ul{
     }
 }
 
-#name{
-    margin-bottom: 0;
+#guest {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+#name {
+    margin-top: 0;
+    font-size: 2.75rem;
+    line-height: 1.1;
+    color: var(--text-main);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.address {
+    margin-top: 0;
+    color: var(--text-sub);
+    font-weight: lighter;
 }
 
 #add{
     margin-top: 0;
 }
 
-.navigate{
-    text-align: center;
+
+/* Container for the education entries */
+.education-item {
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    border-left: 3px solid #e5e7eb; /* The 'Timeline' line */
 }
 
-.nav-button{
-    color: blue;
-    font-size: 100%;
-    font-weight: bold;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.4s;
-    margin-bottom: 1%;
-    margin-top: 1%;
-}
-
-.active, .nav-button:hover {
-    color: black;
-}
-
-.nav-content{
+.edu-header {
     display: flex;
-    flex-direction: column;
-    padding: 0 18px;
-    max-height: 0;    
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.edu-header h3 { margin: 0; color: #1f2937; }
+.edu-date { font-weight: bold; color: #2563eb; font-size: 0.9rem; }
+.school-name { margin-top: 5px; color: #4b5563; font-style: italic; }
+
+/* The Modern Button */
+.more-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.more-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.more-btn.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.arrow-icon {
+    font-style: normal;
+    transition: transform 0.3s ease;
+}
+
+/* The Collapsible Content */
+.certs-content {
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.4s ease-in-out;
 }
 
-.about{
-    margin-bottom: 3%;
-}
-
-.education{
-    margin-bottom: 3%;
+.cert-card {
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 1px solid #e5e7eb;
 }
 
 .skills{
@@ -175,37 +260,12 @@ ul{
     margin-bottom: 3%;
 }
 
-.more{
-    color: blue;
-    font-size: 100%;
-    font-weight: bold;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.4s;
-    margin-bottom: 1%;
-    margin-top: 1%;
-}
-
-.active, .more:hover {
-    color: black;
-}
-
-.certs{
-    display: flex;
-    flex-direction: column;
-    padding: 0 18px;
-    max-height: 0;    
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
 
 .skillsb{
     color: blue;
     font-size: 100%;
     font-weight: bold;
-    background-color: white;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     transition: 0.4s;

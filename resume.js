@@ -1,27 +1,24 @@
 $(document).ready(function () {
 
     $('#theme-toggle').on('click', function() {
-    $('.container').toggleClass('dark-theme');
+        $('body').toggleClass('dark-theme');
+        const isDark = $('body').hasClass('dark-theme');
+        $(this).text(isDark ? '☀️' : '🌓');
     });
 
     var name = prompt("Please enter your name: ", "Guest")
     var guestName = document.getElementById("guest")
     guestName.textContent = "Welcome " + name + "!";
 
-    var coll = document.getElementsByClassName("nav-button");
-
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            } 
-        });
-    }
+    $('.nav-links a').on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            const hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 80
+            }, 800);
+        }
+    });
 
     var coll = document.getElementsByClassName("more");
 
